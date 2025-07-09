@@ -65,6 +65,14 @@ Call the close interface to close the SDK:
 // max_waitms: The maximum number of milliseconds to wait before closing the SDK, waiting for the internal data sending of the SDK to complete.
 inlong_api.close_api(max_waitms)
 ```
+## Uninstall Python SDK
+The Python SDK compiles the so file and copies it to the site packages directory of the Python interpreter for installation. The `delete.sh` script that automatically identifies the storage directory of the so files compiled by the current Python SDK and deletes these files, making it convenient for users to quickly uninstall the Python SDK. 
+Enter the Python SDK directory [dataproxy-sdk-python](https://github.com/apache/inlong/tree/master/inlong-sdk/dataproxy-sdk-twins/dataproxy-sdk-python) and execute the following commands in sequence:
+```shell
+chmod +x ./delete.sh
+./delete.sh
+```
+
 ## Notes
 
 - It is recommended to use the SDK as a resident service for data reporting, to avoid frequent initialization and closure in the same process midway. Repeated initialization and closure will bring more overhead.
